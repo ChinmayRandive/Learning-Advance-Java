@@ -1,0 +1,175 @@
+#Statement in JDBC:
+To Make a call towards DB, Some Type Of Statement Is Required.
+in JDBC.
+ 
+#There are 3 type of Statements:
+1) statement
+2) prepared Statements
+3) Callable Statements
+
+#1)Statements:
+It is used to execute simple Query
+EX:
+stmt.executeQuery("SELECT * FROM EMP");
+stmt.executeUpdate("DELETE FROM EMP");
+
+#2)Prepared statements
+it is used to execute parameterized Query.
+
+#3)Callable Statements:
+it is used to invoke stored Procedure present on DB side.
+
+# Making a JDBC call:
+in order to make JDBC call, Statement interface provides several methods.
+1)executeQuery()
+2)executeUpdate()
+3)execute()
+
+#1)executeQuery(): It is used especially in CASE of SELECT queries.
+it returns ResultSet that holds the data retrieve from DB.
+
+#2) executeUpdate():
+it is used especially in case of DML query.
+it returns int which indicates the number of record affected.
+
+#3)execute()
+it can be used to accomplished several requirements.
+EX:
+Executing Dynamic Query (Query String is Decided at runtime)
+Executing DDL queries.
+
+It Returns a boolean Value that indicates whether the outcome of the Query is an object is of type ReturnSet or not.
+
+
+
+##Transaction management##
+A Transaction is a set of operation to be performed in a single unit.
+Managing the transaction is a key activity in business applications.
+if not handled properly it leads to problem of data inconsistency.
+
+in order to manage the transaction it is necessary to ensure that the transaction are atomic (Execute ALL or NONE).
+
+ In case of JDBC, by Default all the DML operation are auto-commited.
+ This make cause data inconsistency.
+ 
+ ThereFore to ensure the atomicity of the transaction, first it is necessary to disable Auto-Commit.
+ 
+ This is done using relevant methods of Connection Interface:
+ 1.setAutoCommit(boolean)[Use false to disable it]
+ 2.commit() => used to commit the transaction.
+ 3.rollback()  => used to rollback the transaction.
+
+
+
+ ##java SE (Core Java)##
+ 1.Desktop Application
+ 2. Simple N?W Based Application
+ Java EE (Adv Java)
+  
+ 
+ ##Jakarta EE (Java EE (J2EE)):##
+ Jakarta EE Stands for Jakarta Enterprise Edition.
+ It Is a platform meant for developing WebBased as well as enterprise application.
+ 
+ Any Applicatiomn that is accessed using a web browser is referred as a web application
+
+
+It is mainly of 2 types:
+1. Internet => Available for all user
+2. Intranet => Available for specific user
+
+
+##Enterprise Application:## 
+ When a web application require some enterprise services to be incorporated then that application is enterprise application
+ 
+ Enterprise services are the higher end services 
+ EX:
+   1) Scalability 
+   2) Availability  
+   3) Transaction Management 
+   4) Persistency => Storing the data  
+   5) Concurrrency  
+   6) Security  
+   7) Asynchronous Messaging
+ 
+ 
+ Jakarta EE Architecture:
+ Jakarta EE is completely based upon Component driven Architecture. 
+ A component is an application level reusable piece of code.
+ Any think that is resued is called component.
+ Writing code once and reading it multiple times is called components.
+ 
+ Acomponent is mainly divided into 2 types:
+ 1) Unmanaged
+ 2) Managed
+ 
+1) Unmanaged Component:  
+ 
+ EX:
+ public class Customer{
+ }
+ Customer c1 = new Customer();
+ Customer c2 = new Customer();
+ 
+ When the component is instanciated explicitly using new keyword, then that component is called as an Unmanaged Component.
+ In general java SE (core java) consists of Unmanaged Components.
+ EX:
+ FileInputStream fin = new FileInputStream (...);
+  
+ 
+ 
+ 2)  Managed Component: 
+ When a Component gets instantiated implicitly ; without new Keyword then that component is called as managed component.
+ In general, jakarta EE (Jdv java) Consists of managed Components
+ 
+ Managed components are mainly divided into 2 types
+ 1) web component
+ 2  Business Component
+ 
+ 
+ web component:
+ A component that is responsible for accepting web request and generating web reprosance is called as web Components.
+ 
+There are two types of web components
+1.	Servlet
+2.	JSP
+
+Business Component:
+A component that is responsible for handling business logic of the application is called as a business component.
+It is taken care by EJB. i.e Enterprise Java Bean
+
+How Jakarta EE components are managed?
+Jakarta EE components are managed by runtime environment known as Container.
+Since there are 2 types of managed components, there are two types of containers
+
+1.	Web container --> responsible for managing web containers
+2.	EJB container --> responsible for managing EJB's
+
+How containers are made available ? --- These containers are made available by 3rd party softwares known as:
+	1. Web Server
+	2. Application Server
+
+Web server:
+It provides an environment known as Web container. Hence it can be used to execute web components like servlets and JSP.
+
+There are several web servers available whereas the most commonly used and popular ones is Tomcat from Apache Software Foundation.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
